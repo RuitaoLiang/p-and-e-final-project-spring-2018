@@ -32,7 +32,9 @@ Using the Json data and understanding the structure of the data is hard for me. 
 - Week 5: Present!
 
 ## Completed Work
+https://github.com/RuitaoLiang/p-and-e-final-project-spring-2018/blob/master/Screen%20Shot%202018-05-05%20at%205.28.48%20PM.png
 
+https://github.com/RuitaoLiang/p-and-e-final-project-spring-2018/blob/master/Screen%20Shot%202018-05-05%20at%205.29.24%20PM.png
 
 
 ## References and links
