@@ -1,39 +1,44 @@
-NB: You might find useful the [sample proposal](https://github.com/zamfi/cca-programming-electronics-fall-2017/blob/master/hw/sample-proposal.md) useful in completing this assignment!
+# Traffic Congestion Map
 
-# Your Project Title Here
-
-One-sentence summary of your project goes here. Then, make sure you have each of these sections completed:
+It is a map which shows users the traffic congestion situation of North America. 
 
 ## Summary
 
-Here, write a paragraph or two describing what you built for your final project and what was challenging. 
+The goal of my project is to use the technology to help people identify the traffic situation. After a user inputs the latitude and longitude range of an area in North America, the map will display the traffic congestion situation with numbers of red dots. For example, When a user inputs the coordinates of California:25,-110,43,-125, the map will show lots of red dots on Log Angeles and the Bay Area. A similar situation happens in Chicago and New York, since both of them are big cities.However, if the user inputs: 48,-140,70,-110, the coordinates of Canada, there are fewer red dots appeared.  
 
-Include a discussion how it will be interactive or responsive to the environment.
 
 ## Component Parts
 
-From what pieces did you build your project?
+On the hardware side, I will need my computer.
 
-Include what types of inputs/outputs/data it will use, and a block diagram showing how all those pieces are connected.
+Keyboard (input)
+
+On the software side,I will need mapbox to display the map and traffic data API.
+
+mapbox(output) 
+traffic data(input)
+
 
 ## Challenges
 
-A brief discussion of what was hard, challenging, or unexpected about your project.
+Using the Json data and understanding the structure of the data is hard for me. The tutorial was using csv file, however, the traffic data API I found online is JSON or XML format. So I need to learn about the JSON and XML data. 
 
 ## Timeline
 
-What did you do in each of the past five weeks?
-
 - Week 1: Write proposal
-- Week 2: 
-- Week 3:
-- Week 4:
+- Week 2: do research on traffic data and mapbox
+- Week 3: watch tutorials to understand the JSON and XML data
+- Week 4: write code to draw red dots on the map to show traffic condition 
 - Week 5: Present!
 
 ## Completed Work
 
-Photos and videos of your completed final project!
+
 
 ## References and links
 
-Tutorials, comments, videos, magazine articles - anything you found that helps you understand your project.
+Coding Challenge #57: Mapping Earthquake Data: https://www.youtube.com/watch?v=ZiYdOwOrGyc&t=1643s,
+JSON - Introduction: https://www.w3schools.com/js/js_json_intro.asp,
+ API Key for Mapbox: https://www.mapbox.com/studio/account/tokens/,
+Traffic data API: https://msdn.microsoft.com/en-us/library/hh441726.aspx,
+Understand JSON Data: https://www.lynda.com/Web-Development-tutorials/Understand-XML/560344/590554-4.html
