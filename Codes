@@ -1,0 +1,80 @@
+var traffic;
+var song1;
+var song2;
+function preload() {
+	var coords = prompt("Coordinates?");
+  var url = 'http://dev.virtualearth.net/REST/v1/Traffic/Incidents/'+coords+'?key=AsfWWamX-dOtdQ4_PpPDDSkSmLVT0_f5ZnA4J9N6dyNnz2G8HaiV1WDlpKrTNktM';
+	song1 = loadSound('zapsplat_cartoon_walking_care_free_happy_musical_002_18140.mp3');
+  song2 = loadSound('Blastwave_FX_ExplosionCrash_S08WA.132.mp3');
+  print("Proload");  
+  
+  traffic = loadJSON(url);
+}
+var key = 'pk.eyJ1IjoiYmVsbGF0b3Rvcm8iLCJhIjoiY2pmdjlpdXhtMGV4bzM0bGJhcXYyeTVsNiJ9.BIv4jeGZCK5PlVD19A8EbQ';
+
+// Options for map
+var options = {
+  lat: 0,
+  lng: 0,
+  zoom: 4,
+  studio: true, // false to use non studio styles
+  //style: 'mapbox.dark' //streets, outdoors, light, dark, satellite (for nonstudio)
+  style: 'mapbox://styles/mapbox/traffic-night-v2'
+}
+
+// Create an instance of Mapbox
+var mappa = new Mappa('Mapbox', key);
+var myMap;
+
+var canvas;
+var trafficPosition;
+
+function setup() {
+  print("running setup!");  
+  
+  canvas = createCanvas(1600, 1200);
+
+  // Create a tile map and overlay the canvas on top.
+  myMap = mappa.tileMap(options);
+  myMap.overlay(canvas);
+
+  // Load the data
+  trafficPosition = traffic.resourceSets[0].resources;
+  myMap.onChange(drawtrafficPosition);
+  var c = color(255, 204, 0);
+  var redValue = red(c);
+  fill(redValue, 0, 0);
+  stroke(100);
+  var incident = Number(traffic.resourceSets[0].estimatedTotal);
+   print("incident "+incident);
+  if (incident>50) { 
+    song1.stop();
+    song2.play();
+    } else {
+    song1.play();
+    song2.stop();
+  }
+}
+
+// The draw loop is fully functional but we are not using it for now.
+function draw() {}
+
+function drawtrafficPosition() {
+  // Clear the canvas
+  clear();
+  // print(trafficPosition);
+
+  for (var i = 0; i < trafficPosition.length; i++) {
+
+  	var latitude = Number(trafficPosition[i].point.coordinates[0]);
+    var longitude = Number(trafficPosition[i].point.coordinates[1]);
+    //print("traffic incident at "+latitude+", "+longitude);
+    var pos = myMap.latLngToPixel(latitude, longitude);
+    var size = 10; 
+    size = map(size, 558, 60000000, 1, 25) + myMap.zoom();
+    ellipse(pos.x, pos.y, size, size);
+    }
+}
+
+
+
